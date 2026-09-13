@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ENVI-CORE — Environmental Incident Platform</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div class="app">
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-mark">EC</div>
+      <div class="brand-name">ENVI-CORE</div>
+    </div>
+    <nav class="nav">
+      <button class="nav-item active" data-view="dashboard">
+        <span class="nav-dot"></span>Dashboard
+      </button>
+      <button class="nav-item" data-view="report">
+        <span class="nav-dot"></span>Report Incident
+      </button>
+      <button class="nav-item" data-view="map">
+        <span class="nav-dot"></span>Map
+      </button>
+      <button class="nav-item" data-view="cases">
+        <span class="nav-dot"></span>Cases
+      </button>
+      <button class="nav-item" data-view="analytics">
+        <span class="nav-dot"></span>Analytics
+      </button>
+    </nav>
+    <div class="sidebar-foot">
+      <div class="role-label">Viewing as</div>
+      <select id="roleSwitch" class="role-select">
+        <option value="reporter">Community Reporter</option>
+        <option value="officer" selected>Reviewing Officer</option>
+      </select>
+    </div>
+  </aside>
+
+  <!-- Main -->
+  <main class="main">
+    <header class="topbar">
+      <h1 id="pageTitle">Dashboard</h1>
+      <button id="reportBtn" class="btn-primary">+ Report Incident</button>
+    </header>
+
+    <section id="view-dashboard" class="view"></section>
+    <section id="view-report" class="view" hidden></section>
+    <section id="view-map" class="view" hidden></section>
+    <section id="view-cases" class="view" hidden></section>
+    <section id="view-analytics" class="view" hidden></section>
+  </main>
+</div>
+
+<div id="toast" class="toast" hidden></div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
