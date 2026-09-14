@@ -132,12 +132,28 @@ function seedIfEmpty() {
   noteInsert.run("ENV-1005", "2026-08-25T15:00:00", "Operator confirmed corrective action taken. Case closed.");
 }
 
+function updateIncident(id, changes) {
+  const incident = getIncident(id);
+  if (!incident) return null;
+
+  if (changes.status !== undefined) {
+    updateStatus(id, changes.status);
+  }
+
+  if (changes.assignedTo !== undefined) {
+    updateAssignment(id, changes.assignedTo);
+  }
+
+  return getIncident(id);
+}
 seedIfEmpty();
 
 module.exports = {
   listIncidents,
+  getIncidents: listIncidents,
   getIncident,
   createIncident,
+  updateIncident,
   updateStatus,
   updateAssignment,
   addNote,
