@@ -79,11 +79,11 @@ const server = http.createServer(async (req, res) => {
   try {
     const url = new URL(req.url, `http://${req.headers.host}`);
 
-    // GET all incidents
-    if (req.method === "GET" && url.pathname === "/api/incidents") {
-      const incidents = db.getIncidents();
-      return sendJSON(res, 200, incidents);
-    }
+// GET all incidents
+if (req.method === "GET" && url.pathname === "/api/incidents") {
+  const incidents = db.listIncidents();
+  return sendJSON(res, 200, incidents);
+}
 
     // GET one incident
     if (
